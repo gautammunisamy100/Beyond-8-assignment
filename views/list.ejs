@@ -1,0 +1,43 @@
+<% include partials/header %>
+ 
+   <div class="row">
+       <div class="col-md-8" >
+          <h1>  The Course Offered by Beyond 8</h1>
+       </div> 
+       <div class="col-md-4">
+              <input class="form-control mr-sm-2" type="text" id="myInput" onkeyup="Search()"  placeholder="Search Course" aria-label="Search">
+        </div> 
+    </div>
+    <div class="row">
+        <% for(var i = 0;i <courseDataList.length; i++){ %>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem; margin: 25px; padding: 5px;" ">
+                <img class="card-img-top" src="<%=courseDataList[i].image%>" style="height: 180px">
+                <div class="card-body">
+                <h5 class="card-title">Class <%= courseDataList[i].class %></h5>
+                <p class="card-text">Subject:  <%= courseDataList[i].subject %></p>
+                <p class="card-text">Faculty: <%= courseDataList[i].faculty%></p>
+                <a href="/courseDetails/<%= courseDataList[i].class %>/<%= courseDataList[i].subject %>" class="btn btn-primary">Know More</a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    
+<% include partials/footer %>
+<script>
+function Search() {
+  input = document.getElementById('myInput');
+  var filtervalue = input.value.toUpperCase();
+  var card = document.getElementsByClassName("card");
+  for (var i = 0; i < card.length; i++) {
+    var a = card[i].getElementsByTagName("div")[0];
+    var txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filtervalue) > -1) {
+      card[i].style.display = "";
+    } else {
+      card[i].style.display = "none";
+    }
+  }
+}
+</script>

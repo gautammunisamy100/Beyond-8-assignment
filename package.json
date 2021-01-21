@@ -1,0 +1,19 @@
+{
+  "name": "Beyond8Courses",
+  "version": "1.0.0",
+  "description": "A website of Beyond 8 Courses",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gautam M",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-fileupload": "^1.0.0",
+    "mongoose": "^5.4.0",
+    "multer": "^1.4.1"
+  }
+}
